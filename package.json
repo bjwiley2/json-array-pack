@@ -1,0 +1,27 @@
+{
+  "name": "json-array-pack",
+  "version": "0.0.1",
+  "description": "Make network transport of big JSON arrays more efficient",
+  "scripts": {
+    "start": "npm-run-all --parallel test:watch lint:watch",
+    "lint": "node_modules/.bin/esw *.js",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha \"./*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "Ben Wiley",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "2.9.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-watch": "2.1.11",
+    "expect": "1.19.0",
+    "mocha": "2.4.5",
+    "npm-run-all": "1.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
