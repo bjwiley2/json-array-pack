@@ -24,6 +24,63 @@ const getJsonObject = () => {
   ];
 };
 
+const getNestedJsonObject = () => {
+  return [
+    {
+      number: 1,
+      text: "111",
+      bool: false,
+      sub: {
+        numberSub: 11,
+        text: "1111",
+        sub: {
+          numberSub2: 11,
+          text: "1111"
+        }
+      }
+    },
+    {
+      number: 2,
+      text: "222",
+      bool: true,
+      sub: {
+        numberSub: 22,
+        text: "2222",
+        sub: {
+          numberSub2: 22,
+          text: "2222"
+        }
+      }
+    },
+    {
+      number: 3,
+      text: "333",
+      bool: false,
+      sub: {
+        numberSub: 11,
+        text: "3333",
+        sub: {
+          numberSub2: 33,
+          text: "3333"
+        }
+      }
+    },
+    {
+      number: 4,
+      text: "444",
+      bool: true,
+      sub: {
+        numberSub: 44,
+        text: "4444",
+        sub: {
+          numberSub2: 44,
+          text: "4444"
+        }
+      }
+    }
+  ];
+};
+
 describe("Compressor", () => {
   it("should compress", () => {
     const cJson = packer.compress(getJsonObject());
@@ -36,6 +93,15 @@ describe("Compressor", () => {
 describe("Compressor and decompressor", () => {
   it("should return original values", () => {
     const original = getJsonObject();
+    const cJson = packer.compress(original);
+    const dJson = packer.decompress(cJson);
+    expect(dJson).toBeAn("array");
+    expect(dJson.length).toBe(original.length);
+    expect(dJson).toEqual(original);
+  });
+
+  it("should return original values for nested object", () => {
+    const original = getNestedJsonObject();
     const cJson = packer.compress(original);
     const dJson = packer.decompress(cJson);
     expect(dJson).toBeAn("array");
