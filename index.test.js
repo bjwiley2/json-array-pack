@@ -1,5 +1,7 @@
 const expect = require("expect");
-const packer = require("./index.js");
+const ArrayPack = require("./index.js");
+
+const packer = new ArrayPack();
 
 describe("Packer", () => {
   it("should be an object", () => {
@@ -56,14 +58,7 @@ const getNestedJsonObject = () => {
       number: 3,
       text: "333",
       bool: false,
-      sub: {
-        numberSub: 11,
-        text: "3333",
-        sub: {
-          numberSub2: 33,
-          text: "3333"
-        }
-      }
+      sub: getJsonObject()
     },
     {
       number: 4,
