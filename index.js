@@ -1,7 +1,6 @@
-const KeyMapper = require("./keyMapper.js");
-
 module.exports = function () {
 
+  const KeyMapper = require("./keyMapper.js");
   const mapper = new KeyMapper();
 
   const decompressObject = (item, map) => {
@@ -84,9 +83,17 @@ module.exports = function () {
     return compressed.map((item) => { return decompressObject(item, map); });
   };
 
+  const isCompressed = (data) => {
+    return data &&
+      !Array.isArray(data) &&
+      data.map &&
+      data.compressed;
+  };
+
   return {
     decompress,
-    compress
+    compress,
+    isCompressed
   };
 
 };
