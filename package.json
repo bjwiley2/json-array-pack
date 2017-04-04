@@ -2,7 +2,7 @@
   "name": "json-array-pack",
   "version": "0.0.1",
   "description": "Make network transport of big JSON arrays more efficient",
-  "main": "index.js"
+  "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel test:watch lint:watch",
     "lint": "node_modules/.bin/esw *.js",
