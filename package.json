@@ -1,6 +1,6 @@
 {
   "name": "json-array-pack",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Make network transport of big JSON arrays more efficient",
   "main": "index.js",
   "scripts": {
