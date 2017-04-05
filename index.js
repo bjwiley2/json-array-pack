@@ -3,7 +3,7 @@ module.exports = function () {
   const KeyMapper = require("./keyMapper.js");
   const mapper = new KeyMapper();
 
-  const decompressObject = function (item, map) {
+  const decompressObject = (item, map) => {
     const bigObj = {};
 
     for(let cKey in item) {
@@ -25,7 +25,7 @@ module.exports = function () {
     return bigObj;
   };
 
-  const compressObject = function (item) {
+  const compressObject = (item) => {
     const smallObj = {};
 
     for(let dKey in item) {
@@ -47,7 +47,7 @@ module.exports = function () {
     return smallObj;
   };
 
-  const compress = function (original) {
+  const compress = (original) => {
     if(!Array.isArray(original)) {
       throw new Error("Data must be an array");
     }
@@ -60,7 +60,7 @@ module.exports = function () {
     };
   };
 
-  const decompress = function (compressedObj) {
+  const decompress = (compressedObj) => {
     if(!compressedObj) {
       throw new Error("Object must be defined");
     }
@@ -83,7 +83,7 @@ module.exports = function () {
     return compressed.map((item) => { return decompressObject(item, map); });
   };
 
-  const isCompressed = function (data) {
+  const isCompressed = (data) => {
     return data &&
       !Array.isArray(data) &&
       data.map &&

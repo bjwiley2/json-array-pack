@@ -5,11 +5,11 @@ module.exports = function () {
   const cKeyDValue = {};
   const dKeyCValue = {};
 
-  const incrementChar = function (c) {
+  const incrementChar = (c) => {
     return String.fromCharCode(c.charCodeAt(0) + 1);
   };
 
-  const mapKey = function (dKey) {
+  const mapKey = (dKey) => {
     const previouslyMapped = dKeyCValue[dKey];
 
     if(previouslyMapped) {
@@ -24,11 +24,11 @@ module.exports = function () {
     return cKey;
   };
 
-  const getCompressedKey = function (dKey) {
+  const getCompressedKey = (dKey) => {
     return dKeyCValue[dKey];
   };
 
-  const getDecompressedKey = function (cKey) {
+  const getDecompressedKey = (cKey) => {
     return cKeyDValue[cKey];
   };
 
