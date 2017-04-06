@@ -55,7 +55,7 @@ module.exports = function () {
     const compressed = original.map(compressObject);
 
     return {
-      map: mapper.getMap(),
+      map: mapper.getMapAndReset(),
       compressed
     };
   };

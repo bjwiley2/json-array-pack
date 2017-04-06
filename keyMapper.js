@@ -1,9 +1,8 @@
 module.exports = function () {
 
   let currentKey = "a";
-
-  const cKeyDValue = {};
-  const dKeyCValue = {};
+  let cKeyDValue = {};
+  let dKeyCValue = {};
 
   const incrementChar = (c) => {
     return String.fromCharCode(c.charCodeAt(0) + 1);
@@ -32,15 +31,23 @@ module.exports = function () {
     return cKeyDValue[cKey];
   };
 
-  const getMap = () => {
-    return cKeyDValue;
+  const getMapAndReset = () => {
+    const map = cKeyDValue;
+    reset();
+    return map;
+  };
+
+  const reset = () => {
+    currentKey = "a";
+    cKeyDValue = {};
+    dKeyCValue = {};
   };
 
   return {
     getCompressedKey,
     getDecompressedKey,
     mapKey,
-    getMap
+    getMapAndReset
   };
 
 };
